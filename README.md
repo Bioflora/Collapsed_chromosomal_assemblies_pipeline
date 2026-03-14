@@ -2,9 +2,9 @@
 
 **CollapsedChrom** is a custom pipeline for recovering collapsed chromosomal regions from genome assemblies in the *Brachypodium* genus.
 
-<img width="300" height="400" alt="pipeline" src="https://github.com/user-attachments/assets/d86ed8a5-bf57-40a8-b541-57f98978c102" />
+<img width="300" height="350" alt="pipeline" src="https://github.com/user-attachments/assets/d86ed8a5-bf57-40a8-b541-57f98978c102" />
 
-<img width="600" height="400" alt="2" src="https://github.com/user-attachments/assets/cbd28a07-4f79-4027-87f7-aa0dd0b12944" />
+<img width="500" height="350" alt="2" src="https://github.com/user-attachments/assets/cbd28a07-4f79-4027-87f7-aa0dd0b12944" />
 
 
 ## Overview
