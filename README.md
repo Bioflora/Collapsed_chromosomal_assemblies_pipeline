@@ -11,7 +11,7 @@
 
 CollapsedChrom is designed to detect, split, and recover collapsed contigs/unitigs from complex genome assemblies. The core dependency of this pipeline is [C-Phasing](https://github.com/wangyibin/CPhasing) 
 
-This pipeline manualizes the automated workflow in [C-Phasing](https://github.com/wangyibin/CPhasing), making it more accessible and easier to operate.
+Based ob this pipeline, the user could manually run ```collpase``` module in [C-Phasing](https://github.com/wangyibin/CPhasing), making it more accessible and easier to operate.
 
 ---
 
