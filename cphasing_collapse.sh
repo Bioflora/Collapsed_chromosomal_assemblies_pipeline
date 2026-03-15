@@ -25,9 +25,9 @@ perl Util/cphasing.creat_cluster_table_from_splited_seq.pl groups.review.rename.
 ##if you want to recover specific collapsed region, you can just create `z.collapsed.contig.10k.lst` by yourself
 minimap2 --secondary=no -x map-hifi -a -t 120 ./groups.review.rename.split.fasta ccs.fastq.gz | samtools sort -O bam -@ 20 -T align.tmp -o align_long.sort.bam
 perl Util/fasta_convert.window_bed.pl --file groups.review.rename.split.fasta --mode bamdst > groups.review.rename.splitsta.10k.bed
+cd align_long
 bamdst -p groups.review.rename.splitsta.10k.bed -o align_long align_long.sort.bam
-command_stat.bamdst.pl ./ groups.review.rename.splitsta.10k.bed |sh;cd align_long
-msplitf region.tsv.gz
+perl Util/split.col.pl region.tsv.gz
 perl Util/stat.depth_region_interval.pl region.tsv.gz.split 30,120 > region.tsv.gz.split.stat
 perl -anle 'print $_ if ($F[4] > 0.2 && $F[5] >= 10)' region.tsv.gz.split.stat |cut -f 1 > z.collapsed.contig.10k.lst
 cd ..
