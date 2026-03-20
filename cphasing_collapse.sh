@@ -42,7 +42,7 @@ cphasing scaffolding modified.clusters.txt ../2.prepare/hic.fix.counts_GATC.txt 
 cphasing-rs pairs2mnd -q 1 ../hic.fix.pairs.pqs -o hic.fix.pqs.mnd.txt
 cphasing utils agp2assembly groups.agp -o groups.assembly
 bash path/to/3d-dna/visualize/run-assembly-visualizer.sh -p true groups.assembly .pqs.mnd.txt
-## manually adjust in juice box
+## manually adjust in juice box. in most of case case, you do not to change anything if you have already adjusted it properly in inital hic anchoring, but i add this step to double check
 cphasing utils assembly2agp groups.review.assembly -o groups.review
 
 ## step5: recover collapsed region and adjust manually
