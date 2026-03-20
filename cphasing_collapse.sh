@@ -49,14 +49,14 @@ cphasing utils assembly2agp groups.review.assembly -o groups.review
 cd cphasing_output; mkdir 6.collapse; cd 6.collapse
 cut -f 1,2 ../groups.review.rename.split.fasta.fai > contig.len.txt
 ln -s path/to/z.collapsed.contig.10k.lst ./
-perl Util/hic/agp.make_duplication.pl ../4.scaffolding/groups.review.agp z.collapsed.unitig.10k.lst contig.len.txt > groups.review.add.agp
+perl Util/hic/agp.make_duplication.pl ../4.scaffold/groups.review.agp z.collapsed.unitig.10k.lst contig.len.txt > groups.review.add.agp
 cphasing collapse agp-dup groups.review.add.agp -o groups.review.add.dup.agp
 #perl ~/code/hic/agp.re_check_cphasing_collapse_agp-dup.pl groups.review.add.dup.agp z.collapsed.unitig.10k.lst > groups.review.add.dup.agp.fix
 #mv groups.review.add.dup.agp.fix groups.review.add.dup.agp
 #grep 'd2' groups.review.add.dup.agp |cut -f 6 |perl -nle '$t = $_; $t =~ s/\_d2//;print "$t\t$_"' > duplicated.contigs.txt
 grep '_d' groups.review.add.dup.agp |cut -f 6 |perl -nle '$t = $_; $t =~ s/\_d\d+//;print "$t\t$_"' > duplicated.contigs.txt
-cphasing collapse pairs-dup ../genome.hic.fix.pairs.pqs duplicated.contigs.txt -o ../genome.hic.fix.pairs.collapse.pqs
-cphasing-rs pairs2mnd -q 1 ../genome.hic.fix.pairs.collapse.pqs -o genome.hic.fix.pqs.collapse.mnd.txt
+cphasing collapse pairs-dup ../hic.fix.pairs.pqs duplicated.contigs.txt -o ../genome.hic.fix.pairs.collapse.pqs
+cphasing-rs pairs2mnd -q 1 ../hic.fix.pairs.collapse.pqs -o genome.hic.fix.pqs.collapse.mnd.txt
 cphasing utils agp2assembly groups.review.add.dup.agp -o groups.review.add.dup.assembly
 bash path/to/3d-dna/visualize/run-assembly-visualizer.sh -p true groups.review.add.dup.assembly genome.hic.fix.pqs.collapse.mnd.txt
 # manually adjust in juice box #
