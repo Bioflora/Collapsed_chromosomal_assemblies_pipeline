@@ -31,13 +31,15 @@ perl Util/split.col.pl region.tsv.gz
 perl Util/stat.depth_region_interval.pl region.tsv.gz.split 30,120 > region.tsv.gz.split.stat
 perl -anle 'print $_ if ($F[4] > 0.2 && $F[5] >= 10)' region.tsv.gz.split.stat |cut -f 1 > z.collapsed.contig.10k.lst
 cd ..
+mv cphasing_output cphasing_output_0
 cd ..
 
 ## step4: re-hic mapping (avoid potential bug when cphasing generate collapse interaction map with splited sequence)
 cphasing pipeline -f groups.review.rename.split.fasta -hic1 hic.fix_1.fastq.gz -hic2 hic.fix_2.fastq.gz -t 100 -n 0:0 --pattern GATC --steps 1,2,3
 mkdir cphasing_output/4.scaffold && cd cphasing_output/4.scaffold
-cphasing scaffolding modified.clusters.txt ../2.prepare/.counts_GATC.txt ../2.prepare/.clm.gz -at ../.allele.table -sc ../2.prepare/.split.contacts -f ../groups.review.rename.split.fasta -t 100 -o groups.agp -m precision;
-cphasing-rs pairs2mnd -q 1 ../.pairs.pqs -o .pqs.mnd.txt
+## mv modified.clusters.txt to here
+cphasing scaffolding modified.clusters.txt ../2.prepare/hic.fix.counts_GATC.txt ../2.prepare/hic.fix.clm.gz -at ../3.hyperpartition/hic.fix.allele.table -sc ../2.prepare/hic.fix.split.contacts -f ../groups.review.rename.split.fasta -t 100 -o groups.agp -m precision;
+cphasing-rs pairs2mnd -q 1 ../hic.fix.pairs.pqs -o hic.fix.pqs.mnd.txt
 cphasing utils agp2assembly groups.agp -o groups.assembly
 bash path/to/3d-dna/visualize/run-assembly-visualizer.sh -p true groups.assembly .pqs.mnd.txt
 ## manually adjust in juice box
