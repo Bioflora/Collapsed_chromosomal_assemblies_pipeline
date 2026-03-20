@@ -41,7 +41,7 @@ mkdir cphasing_output/4.scaffold && cd cphasing_output/4.scaffold
 cphasing scaffolding modified.clusters.txt ../2.prepare/hic.fix.counts_GATC.txt ../2.prepare/hic.fix.clm.gz -at ../3.hyperpartition/hic.fix.allele.table -sc ../2.prepare/hic.fix.split.contacts -f ../groups.review.rename.split.fasta -t 100 -o groups.agp -m precision;
 cphasing-rs pairs2mnd -q 1 ../hic.fix.pairs.pqs -o hic.fix.pqs.mnd.txt
 cphasing utils agp2assembly groups.agp -o groups.assembly
-bash path/to/3d-dna/visualize/run-assembly-visualizer.sh -p true groups.assembly .pqs.mnd.txt
+bash path/to/3d-dna/visualize/run-assembly-visualizer.sh -p true groups.assembly hic.fix.pqs.mnd.txt
 ## manually adjust in juice box. in most of case case, you do not to change anything if you have already adjusted it properly in inital hic anchoring, but i add this step to double check
 cphasing utils assembly2agp groups.review.assembly -o groups.review
 
