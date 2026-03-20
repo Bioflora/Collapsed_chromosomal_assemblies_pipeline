@@ -19,7 +19,6 @@ Based on this pipeline, the user could manually run ```collpase``` module in [C-
 
 Please make sure the following tools are installed and available in your environment:
 
-- [Hifiasm](https://github.com/chhylp123/hifiasm)
 - [Minimap2](https://github.com/lh3/minimap2)
 - [Bamdst](https://github.com/shiquan/bamdst)
 - [C-Phasing](https://github.com/wangyibin/CPhasing)  
